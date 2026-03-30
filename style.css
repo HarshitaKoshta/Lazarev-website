@@ -316,12 +316,14 @@ nav button svg{
 }
 
 #page5 button{
-    background-color: #0BA34E;
+    background-color: #09b411;
     padding:0.9vw 2vw;
     font-size: 1vw;
     font-weight: 600;
     border-radius: 50px;
     border: none;
+    position: sticky;
+    top:13%;
 }
 #page5-right{
     width: 70%;
@@ -340,8 +342,9 @@ nav button svg{
     border-top: 2px solid white;
     margin-top: 4vh;
 }
-#page5-content>h1{
+#page5-content h1{
     font-size: 3vw;
+    font-weight: 500;
 }
 #page5-content #flex{
     display: flex;
@@ -363,10 +366,15 @@ nav button svg{
     padding-top: 3vh;
     padding-bottom: 9vh;
     position: relative;
+    overflow: hidden;
+    border-top: 1px solid rgb(61, 61, 61);
+}
+.page5-elem:hover{
+    border-top: 1.6px solid rgb(183, 182, 182);
 }
 .page5-elem p{
     width: 60%;
-    font-size: 0.8vw;
+    font-size: 1vw;
     position: relative;
     z-index: 8;
 }
@@ -374,18 +382,165 @@ nav button svg{
 .page5-elem h3{
     font-size: 1.5vw;
     font-weight: 400;
-     position: relative;
+    position: relative;
     z-index: 8;
 }
 .over{
-    height: 100%;
+    height: 99%;
     width: 100%;
-    background-color: #333;
+    background-color: #262626;
     position: absolute;
     top:0;
     transform: translateY(-100%);
     opacity: 0;
+    transition: all ease-out 0.6s;
 }
 .page5-elem:hover h3{
-    padding-left: ;
+    padding-left: 1vw;
+}
+
+.page5-elem:hover .over{
+    transform:translateY(0);
+    opacity:1;
+}
+.uiux{
+    border-bottom: 1px solid #716e6e;
+}
+.product{
+    padding: 4vh 0;
+}
+#page6{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #f0efef;
+    padding: 9vh 10vw;
+}
+#page6>h1{
+    font-size: 5.5vw;
+    color:black;
+    padding-left: 26vw;
+    padding-right: 5vw;
+    padding-bottom: 5vh;
+    border-bottom: 1px solid #d1d1d1;
+    line-height: 5.8vw;
+}
+#page6-content{
+    display: flex;
+    color: #000;
+    align-items:flex-start;
+    justify-content: space-between;
+    padding: 6vh 0;
+}
+#page6-content #right-6{
+    width: 70%;
+    
+}
+#page6-content #right-6 p{
+    font-size: 1.3vw;
+    color: #000000;
+    margin-bottom: 6vh;
+    width: 80%;
+}
+#blue-btn{
+    background-color: rgb(10, 95, 254);
+    width: 13.5vw;
+    height: 3.2vw;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#blue-btn h4{
+    position: absolute;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 0.85vw;
+}
+#page6-bottom{
+   height: 44vh;
+   width: 100%;
+   /* background-color: red; */
+   border-top: 1px solid #dadada;
+   display: flex;
+   align-items: flex-start;
+   justify-content: center;
+}
+#btm6-part1{
+    border-right: 1px solid #dadada;
+    width: 30%;
+    height: 100%;
+}
+#btm6-part2{
+    border-right: 1px solid #dadada;
+    width: 28%;
+    height: 100%;
+}
+#btm6-part3{
+    border-right: 1px solid #dadada;
+    width: 15%;
+    height: 100%;
+}
+#btm6-part4{
+    border-right: 1px solid #dadada;
+    width: 15%;
+    height: 100%;
+}
+#btm6-part5{
+    border-right: 1px solid #dadada;
+    width: 15%;
+    height: 100%;
+}
+.btm6-parts{
+    padding: 3vh 0.6vw;
+}
+.btm6-parts h5{
+    color: #000000;
+    font-weight: 400;
+    font-size: 0.95vw;
+    margin-bottom: 3vh;
+}
+.btm6-parts h4{
+    background-color: #000000;
+    width: 74%;
+    font-size: 0.85vw;
+    font-weight: 500;
+    padding: 6px 9px;
+    margin-bottom: 0.3vh;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+}
+.btm6-parts h4 span{
+    background-color: #3a3939;
+    padding: 0.5vw;
+    border-radius: 50%;
+    width: 1.6vw;
+    height: 1.6vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.7vw;
+}
+#btm6-part2 h4:nth-child(2){
+    transform: translateX(0);
+}
+#btm6-part2 h4:nth-child(3){
+    transform: translateX(15%);
+}
+#btm6-part2 h4:nth-child(4){
+    transform: translateX(25%);
+}
+#btm6-part2 h4:nth-child(5){
+    transform: translateX(35%);
+}
+#btm6-part2 h4:nth-child(6){
+    transform: translateX(45%);
+}
+#btm6-part2 h4:nth-child(7){
+    transform: translateX(59%);
+}
+#page7{
+    height: 100vh;
+    width: 100%;
+    background-color: #000;
 }
