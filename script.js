@@ -1,45 +1,45 @@
 // const { Scale } = require("lucide-react")
-function locomotiveAni(){
-gsap.registerPlugin(ScrollTrigger);
+function locomotiveAni() {
+    gsap.registerPlugin(ScrollTrigger);
 
-const locoScroll = new LocomotiveScroll({
-  el: document.querySelector("#main"),
-  smooth: true,
+    const locoScroll = new LocomotiveScroll({
+        el: document.querySelector("#main"),
+        smooth: true,
 
-  // for tablet smooth
-  tablet: { smooth: true },
+        // for tablet smooth
+        tablet: { smooth: true },
 
-  // for mobile
-  smartphone: { smooth: true }
-});
-locoScroll.on("scroll", ScrollTrigger.update);
+        // for mobile
+        smartphone: { smooth: true }
+    });
+    locoScroll.on("scroll", ScrollTrigger.update);
 
-ScrollTrigger.scrollerProxy("#main", {
-  scrollTop(value) {
-    return arguments.length
-      ? locoScroll.scrollTo(value, 0, 0)
-      : locoScroll.scroll.instance.scroll.y;
-  },
-  getBoundingClientRect() {
-    return {
-      top: 0,
-      left: 0,
-      width: window.innerWidth,
-      height: window.innerHeight
-    };
-  }
+    ScrollTrigger.scrollerProxy("#main", {
+        scrollTop(value) {
+            return arguments.length
+                ? locoScroll.scrollTo(value, 0, 0)
+                : locoScroll.scroll.instance.scroll.y;
+        },
+        getBoundingClientRect() {
+            return {
+                top: 0,
+                left: 0,
+                width: window.innerWidth,
+                height: window.innerHeight
+            };
+        }
 
-  // follwoing line is not required to work pinning on touch screen
+        // follwoing line is not required to work pinning on touch screen
 
-  /* pinType: document.querySelector("#main").style.transform
-    ? "transform"
-    : "fixed"*/
-});
+        /* pinType: document.querySelector("#main").style.transform
+          ? "transform"
+          : "fixed"*/
+    });
 
 
-ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 
-ScrollTrigger.refresh();
+    ScrollTrigger.refresh();
 
 }
 locomotiveAni()
@@ -87,87 +87,119 @@ function navAnimation() {
 }
 navAnimation()
 
-function page2Animation(){
+function page2Animation() {
     var rightElems = document.querySelectorAll(".right-elem")
 
-rightElems.forEach(function(elem){
-    elem.addEventListener("mouseenter",function(){
-        gsap.to(elem.childNodes[3],{
-            opacity:1,
-            scale:1
+    rightElems.forEach(function (elem) {
+        elem.addEventListener("mouseenter", function () {
+            gsap.to(elem.childNodes[3], {
+                opacity: 1,
+                scale: 1
+            })
+        })
+        elem.addEventListener("mouseleave", function () {
+            gsap.to(elem.childNodes[3], {
+                opacity: 0,
+                scale: 0
+            })
+        })
+        elem.addEventListener("mousemove", function (dets) {
+            gsap.to(elem.childNodes[3], {
+                x: dets.x - elem.getBoundingClientRect().x - 50,
+                y: dets.y - elem.getBoundingClientRect().y - 95
+            })
         })
     })
-    elem.addEventListener("mouseleave",function(){
-        gsap.to(elem.childNodes[3],{
-            opacity:0,
-            scale:0
-        })
-    })
-    elem.addEventListener("mousemove",function(dets){
-      gsap.to(elem.childNodes[3],{
-        x:dets.x - elem.getBoundingClientRect().x-50,
-        y:dets.y - elem.getBoundingClientRect().y-95
-      })    
-    })
-})
 }
 page2Animation()
 
-function videoAnimation(){
+function videoAnimation() {
     var sections = document.querySelectorAll(".sec-right")
 
-sections.forEach(function(elem){
-    elem.addEventListener("mouseenter",function(){
-        elem.childNodes[3].style.opacity = 1
-    elem.childNodes[3].play()
+    sections.forEach(function (elem) {
+        elem.addEventListener("mouseenter", function () {
+            elem.childNodes[3].style.opacity = 1
+            elem.childNodes[3].play()
+        })
+        elem.addEventListener("mouseleave", function () {
+            elem.childNodes[3].style.opacity = 0
+            elem.childNodes[3].load()
+        })
     })
-    elem.addEventListener("mouseleave",function(){
-        elem.childNodes[3].style.opacity = 0
-        elem.childNodes[3].load()
-    })
-})
 }
 
 videoAnimation()
 
 
-function page6Animation(){
-    gsap.from("#btm6-part2 h4",{
-    x:0,
-    duration:1,
-    scrollTrigger:{
-        trigger:"#btm6-part2",
-        scroller:"#main",
-        // marker:true,
-        start:"top 85%",
-        end:"top -80%",
-        scrub:true
-    }
-})
+function page6Animation1() {
+    gsap.from("#btm6-part2 h4", {
+        x: 0,
+        duration: 1,
+        scrollTrigger: {
+            trigger: "#btm6-part2",
+            scroller: "#main",
+            // marker:true,
+            start: "top 85%",
+            end: "top -80%",
+            scrub: true
+        }
+    })
 }
-page6Animation()
+page6Animation1()
+
+function page6Animation2() {
+    gsap.from("#btm6-part3 h4", {
+        x: 0,
+        duration: 1,
+        scrollTrigger: {
+            trigger: "#btm6-part3",
+            scroller: "#main",
+            // marker:true,
+            start: "top 85%",
+            end: "top -80%",
+            scrub: true
+        }
+    })
+}
+page6Animation2()
+
+function page6Animation3() {
+    gsap.from("#btm6-part4 h4", {
+        x: 0,
+        duration: 1,
+        scrollTrigger: {
+            trigger: "#btm6-part2",
+            scroller: "#main",
+            // marker:true,
+            start: "top 85%",
+            end: "top -80%",
+            scrub: true
+        }
+    })
+}
+page6Animation3()
 
 
-function loading(){
-    var tl= gsap.timeline()
-tl.from("#page1",{
-    opacity:0,
-    duration:0.2,
-    delay:1
-})
-tl.from("#page1",{
-    transform:"scaleX(0.7) scaleY(0.2) translateY(30%)",
-    duration:1.4,
-    ease:"expo.out",
-    borderRadius : "50px"
-})
-tl.from("nav",{
-    opacity:0
-})
-tl.from("#page1 h1,#page1 p,#page1 div",{
-    opacity:0,
-    duration:0.4,
-    stagger:0.2
-})
+function loading() {
+    var tl = gsap.timeline()
+    tl.from("#page1", {
+        opacity: 0,
+        duration: 0.2,
+        delay: 1
+    })
+    tl.from("#page1", {
+        transform: "scaleX(0.7) scaleY(0.2) translateY(30%)",
+        duration: 1.4,
+        ease: "expo.out",
+        borderRadius: "50px"
+    })
+    tl.from("nav", {
+        opacity: 0
+    })
+    tl.from("#page1 h1,#page1 p,#page1 div", {
+        opacity: 0,
+        duration: 0.4,
+        stagger: 0.2
+    })
 }
 loading()
